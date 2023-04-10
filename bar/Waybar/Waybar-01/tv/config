@@ -1,0 +1,229 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top",
+
+    "height": 43,
+    "width": 3200,
+    "spacing": 4,
+
+    "modules-left": ["wlr/workspaces", "hyprland/window", "wlr/taskbar"],
+    "modules-center": ["clock"],
+    "modules-right": ["custom/weather", "network", "custom/alsa", "battery"],
+
+    //***************************
+    //*  Modules configuration  *
+    //***************************
+"wlr/workspaces": {
+               "format": "{icon}",
+               "on-scroll-up": "hyprctl dispatch workspace e+1",
+               "on-scroll-down": "hyprctl dispatch workspace e-1",
+               "on-click": "activate",
+               "format": "{icon}",
+                "format-icons": {
+                     "1": "I",
+                     "2": "II",
+                     "3": "III",
+                     "4": "IV",
+                     "5": "V",
+                     "6": "VI",   
+                     "7": "",
+                     "8": "VIII",
+                     "9": "IX",
+                     "10": "ø", 
+		     "focused": "",
+                     "default": ""
+                },
+                "sort-by-number": true
+           },
+
+ "wlr/taskbar": {
+                "format": "{icon}",
+                "icon-size": 14,
+                "icon-theme": "Numix-Circle",
+                "tooltip-format": "{title}",
+                "on-click": "activate",
+                "on-click-middle": "close",
+                "ignore-list": [
+                    "Alacritty"
+                ],
+                "app_ids-mapping": {
+                     "firefoxdeveloperedition": "firefox-developer-edition"
+                }
+           },
+
+
+    //***************************
+    //*  Sway configuration  *
+    //***************************
+
+
+"sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+
+"sway/workspaces": {
+         "disable-scroll": true,
+         "all-outputs": true,
+         "format": "{icon}",
+         "format-icons": {
+             "1": "",
+             "2": "",
+             "3": "",
+             "4": "",
+             "5": "",
+             "urgent": "",
+             "focused": "",
+             "default": ""
+         }
+    },
+
+    //***************************
+    //*  Mysc configuration  *
+    //***************************
+
+
+    "pulseaudio": {
+         "scroll-step": 1, // %, can be a float
+        "reverse-scrolling": 0,
+        "format": "{volume}% {icon} {format_source}",
+        "format-muted": "婢 {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "default": ["奄", "奔", "墳"]
+        },
+        "on-click": "pavucontrol",
+        "on-click-right": "alsamixer",	"min-length": 13, },
+
+"battery": {
+		"states": {
+			"good": 89,
+			"warning": 15,
+			"critical": 5
+		},
+		"format": "{icon} {capacity}%",
+		//"format-charging": "{capacity}% 󱐌",
+		//"format-charging": "{capacity}% 󱐋",
+		"format-charging": "{capacity}% 🔌",
+        "format-plugged": "{capacity}% ",
+		"format-icons": ["", "", "", "", ""],
+			"on-update": "$HOME/.config/waybar/check_battery.py",
+		"tooltip": false
+	},
+
+"tray": {
+        "spacing": 10,
+        "icon-size": 15
+    },
+    
+"clock": {
+        "timezone": "Europe/Dublin",
+   //     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+       "format-alt": "{:%d.%m.%Y}"
+    },
+
+"custom/cmus": {
+    "format": "   {}",
+    "max-length": 45,
+    "interval": 10,
+    "exec": "cmus-remote -C \"format_print '%F'\"",
+    "exec-if": "pgrep cmus",
+    "on-click": "cmus-remote -u",
+    "on-scroll-up": "cmus-remote --next",
+    "on-scroll-down": "cmus-remote --prev",
+    "escape": true
+},
+
+"custom/weather": {
+    "format": "{}",
+    "exec": "~/.config/waybar/HYPR/openweathermap-simple.sh",
+//    "exec": "curl 'https://wttr.in/?format=1'",
+    "interval": 3600
+},
+
+//"custom/key": {
+ //   "format": "{}",
+ //   "exec": "~/.config/waybar/key.sh",
+//    "interval": 600
+//},
+
+    "network": {
+        //"interface": "wlan0*", // (Optional) To force the use of this interface
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) 󱐌",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+//    "custom/vpn": {
+//  "interval": 5,
+//  "tooltip": false,
+//  "format": "{}",
+//  "return-type": "json",
+//  "exec": "$HOME/path/to/binary/vpn es-mad-wg-201"
+//  }, 
+
+    //***************************
+    //*  Hyprland configuration  *
+    //***************************
+
+
+"hyprland/window": {
+    "format": "€{}€",
+    "separate-outputs": false,
+    "max-length": 20
+},
+
+"hyprland/language": {
+    "format": "{de}",
+    "keyboard-name": "AT Translated Set 82e38fb0"
+},
+
+
+"hyprland/submap": {
+    "format": "✌️ {}",
+    "max-length": 8,
+    "tooltip": false
+},
+
+    //***************************
+    //*  media? configuration  *
+    //***************************
+
+
+
+"custom/alsa": {
+    "format": "  {}",
+    "exec": "amixer get Master | sed -nre 's/.*\\[off\\].*/      \n\nmuted/p; s/.*\\[(.*%)\\].*/    \\1/p'",
+    "format-muted": "婢 {}",
+    "exec": "amixer get Master | awk -F'[][]' 'END{ print $2 }'",
+    "on-click": "amixer set Master toggle; pkill -x -RTMIN+11 waybar",
+    "on-scroll-up": "amixer set Master 1+; pkill -x -RTMIN+11 waybar",
+    "on-scroll-down": "amixer set Master 1-; pkill -x -RTMIN+11 waybar",
+    "signal": 11,
+    "interval": 10,
+    "tooltip": true
+    },
+
+    "custom/media": {
+        "format": "{icon} {}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "spotify": "",
+            "default": "🎜"
+        },
+
+        "escape": true,
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    }
+}
+
+

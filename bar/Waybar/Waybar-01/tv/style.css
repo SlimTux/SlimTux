@@ -1,0 +1,324 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: FontAwesome, JetBrainsMono, sans-serif;
+    font-size: 69px;
+}
+
+/*---БАР----------------------------------------------------------------*/
+window#waybar {
+    background-color: rgba(43, 48, 59, 0.0);
+    color: #ffffff;
+    transition-property: background-color;
+    transition-duration: .5s;
+    padding: 0;
+    margin: 0;
+}
+
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+
+/*---КНОПКИ-------------------------------------------------------------*/
+button {
+    margin: 0;
+    padding: 10;
+    background-color: #262a32;
+    color: #d8dee8;
+    border-radius: 15;
+}
+
+button:hover {
+    margin: 0;
+    padding: 10;
+    background-color: #262a32;
+    color: #d8dee8;
+    border-radius: 15;
+}
+
+button:focus {
+    margin: 0;
+    padding: 10;
+    background-color: #262a32;
+    color: #d8dee8;
+    border-radius: 15;
+}
+
+
+/*---КНОПКИ ОКОН--------------------------------------------------------*/
+#workspaces {
+    margin: 0;
+}
+
+#workspaces button {
+    padding: 0 5;
+    margin: 1.8;
+    background-color: #262a32;
+    color: #444b6a;
+    border-radius: 16;
+}
+
+#workspaces button:hover {
+    color: #444b6a;
+}
+
+#workspaces button.active {
+    background-color: #262a32;
+    color: #0db9d7;
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+
+/*---ТРЕЙ---------------------------------------------------------------*/
+#tray {
+    padding: 7;
+    margin: 5 0 5 0;
+    background-color: #262a32;
+    color: #d8dee8;
+    border-radius: 15;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+
+/*---CMUS---------------------------------------------------------------*/
+#custom-cmus {
+    padding: 0 15 0 15;
+    margin:  5 0 5 0;
+    background-color: #262a32;
+    color: #b9f27c;
+    border-radius: 15;
+}
+
+
+/*---ALSA---------------------------------------------------------------*/
+
+/*
+
+#custom-alsa {
+    padding: 0 15 0 15;
+    margin:  5 0 5 0;
+    background-color: #262a32;
+    color: #ff9e64;
+    border-radius: 15;
+}
+
+*/
+
+#custom-alsa {		
+    padding: 0 1 0 1;
+    margin: 0.5 0 0.5 0;
+    border-radius: 15;
+/*    background: #197200;
+    background: #1ee971; 
+    background: #b0f28c; 
+    color: #ffffff; */
+}
+
+#custom-alsa.on-click {
+    background-color: #ffbe61;
+    color: black;
+}
+
+
+#pulseaudio {
+	padding: 0 1 0 1;
+    margin: 0.5 0 0.5 0;
+    border-radius: 15;
+    background: #b0f28c;
+    color: #000000;
+}
+
+#pulseaudio.bluetooth
+
+#pulseaudio.muted {
+    background-color: #90b1b1;
+    color: #2a5c45;
+}
+
+/*---WINDOW-------------------------------------------------------------*/
+#window {
+    padding: 0 15 0 15;
+    margin: 5 0 5 0;
+    background-color: #262a32;
+    color: #0db9d7;
+    border-radius: 15;
+}
+
+#submap {
+    padding: 0 15 0 15;
+    margin: 5px 0 5px 0;
+    background-color: #262a32;
+    color: #0db9d7;
+    border-radius: 15;
+}
+
+
+/*---WINDOW-------------------------------------------------------------*/
+#clock {
+    padding: 0 15 0 15;
+    margin: 5px 0 5px 0;
+    background-color: #262a32;
+    color: #ff7a93;
+    border-radius: 15;
+}
+
+
+#mode,
+#language,
+#custom-weather {
+    padding: 0 15 0 15;
+    margin: 5px 0 5px 0;
+    background-color: #262a32;
+    color: #d8dee8;
+    border-radius: 15;
+}
+
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+label:focus {
+    background-color: #ffffff;
+}
+
+
+
+
+#keyboard-state {
+    background: #97e1ad;
+    color: #000000;
+    padding: 0 0px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
+#keyboard-state > label {
+    padding: 0 0px;
+}
+
+#keyboard-state > label.locked {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+#tags {
+	padding: 0 15 0 15;
+    margin: 5px 0 5px 0;
+    border-radius: 15;
+}
+
+#tags button {
+	padding: 0 10px;
+	margin: 0;
+}
+
+#tags button.occupied {
+	border: 2px solid lightgrey;
+	padding: 0 8px;
+}
+
+#tags button.focused {
+	background: lightgrey;
+	color: black;
+}
+
+#network{
+    padding: 0 15 0 15;
+    margin: 5px 0 5px 0;
+    border-radius: 15;
+}
+
+#network.linked {
+    background-color: #262a32;
+    color: #0db9d7;
+}
+
+
+#network.wifi {
+    color: #ffffff;
+    background-color: #26A65B;
+}
+
+#network.ethernet  {
+    color: #ffffff;
+    background-color: #26A65B;
+}
+
+
+#network.disconnected {
+    background-color: #ffbe61;
+    color: black;
+}
+
+#network.disabled {
+    background-color: #f53c3c;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/*
+#custom-vpn {
+    padding: 0 5px;
+    margin: 0 4px;
+    background-color: transparent;
+    border-bottom: 2px solid #00ff96;
+    color: #ffffff;
+}
+
+#custom-vpn.down {
+  border-bottom: 2px solid #dd2241;
+}
+
+ */
+
+
+
+#battery{
+    padding: 0 15 0 15;
+    margin: 5px 0 5px 0;
+    border-radius: 15;
+}
+
+
+#battery.charging {
+    color: #ffffff;
+    background-color: #26A65B;
+}
+
+#battery.warning:not(.charging) {
+    background-color: #ffbe61;
+    color: black;
+}
+
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
