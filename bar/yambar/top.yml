@@ -1,0 +1,153 @@
+default: &default JetBrainsMono Nerd Font:pixelsize=16
+extrabold: &extrabold JetBrainsMono Nerd Font:style=extrabold:pixelsize=16
+
+color0: &color0 ff0000ff
+color1: &color1 d15400ff
+color2: &color2 cf9100ff
+color3: &color3 d1b700ff
+color4: &color4 e5d90bff
+color5: &color5 e1e50cff
+color6: &color6 d7e50aff
+color7: &color7 c7e20aff
+color8: &color8 a6e510ff
+color9: &color9 79e513ff
+color_off: &color_off d3d3d3ff
+
+# decoration for current attention:
+current: &current {overline: {size: 2, color: ff0000ff}}
+
+# GLOBAL #######################################################################
+bar:
+  height: 20
+  location: top
+  font: *default
+  foreground: ffffffff
+  background: 00000088
+  spacing: 20
+  margin: 6
+################################################################################
+
+
+# LEFT #########################################################################
+  left:
+
+
+  - dwl:
+      number-of-tags: 9
+      dwl-info-filename: "/home/jrd/.cache/dwltags"
+      content:
+        list:
+          items:
+            - map:
+                conditions:
+                  selected:
+                    string:
+                      text: "{id}"
+                      font: *extrabold
+                      margin: 6
+                      deco: *current
+                  ~empty: {string: {text: "{id}", margin: 6}}
+                  urgent: {string: {text: "=> {id} <="}}
+                  # default tag
+                  #id == 0: {string: {text: "{layout}"}}
+
+################################################################################
+
+# CENTER #######################################################################
+  center:
+
+  - clock:
+      time-format: "%-H:%M"
+      content:
+      - string:
+          text: "{time}"
+          font: *extrabold
+          margin: 5
+################################################################################
+
+# RIGHT ########################################################################
+  right:
+
+  - clock:
+      date-format: "%-d.%-m.%y"
+      content:
+      - string:
+          text: "{date}"
+          margin: 5
+
+  - clock:
+      date-format: "%w"
+      content:
+        map:
+          conditions:
+            date == "1":
+              - list:
+                  items:
+                    - string: {text: "M", margin: 6, foreground: *color9, font: *extrabold, deco: *current}
+                    - string: {text: "D", margin: 6, foreground: *color8, font: *default}
+                    - string: {text: "M", margin: 6, foreground: *color7, font: *default}
+                    - string: {text: "D", margin: 6, foreground: *color6, font: *default}
+                    - string: {text: "F", margin: 6, foreground: *color4, font: *default}
+                    - string: {text: "S", margin: 6, foreground: *color2, font: *default}
+                    - string: {text: "S", margin: 6, foreground: *color1, font: *default}
+            date == "2":
+              - list:
+                  items:
+                    - string: {text: "M", margin: 6, foreground: *color9, font: *default}
+                    - string: {text: "D", margin: 6, foreground: *color8, font: *extrabold, deco: *current}
+                    - string: {text: "M", margin: 6, foreground: *color7, font: *default}
+                    - string: {text: "D", margin: 6, foreground: *color6, font: *default}
+                    - string: {text: "F", margin: 6, foreground: *color4, font: *default}
+                    - string: {text: "S", margin: 6, foreground: *color2, font: *default}
+                    - string: {text: "S", margin: 6, foreground: *color1, font: *default}
+            date == "3":
+              - list:
+                  items:
+                    - string: {text: "M", margin: 6, foreground: *color9, font: *default}
+                    - string: {text: "D", margin: 6, foreground: *color8, font: *default}
+                    - string: {text: "M", margin: 6, foreground: *color7, font: *extrabold, deco: *current}
+                    - string: {text: "D", margin: 6, foreground: *color6, font: *default}
+                    - string: {text: "F", margin: 6, foreground: *color4, font: *default}
+                    - string: {text: "S", margin: 6, foreground: *color2, font: *default}
+                    - string: {text: "S", margin: 6, foreground: *color1, font: *default}
+            date == "4":
+              - list:
+                  items:
+                    - string: {text: "M", margin: 6, foreground: *color9, font: *default}
+                    - string: {text: "D", margin: 6, foreground: *color8, font: *default}
+                    - string: {text: "M", margin: 6, foreground: *color7, font: *default}
+                    - string: {text: "D", margin: 6, foreground: *color6, font: *extrabold, deco: *current}
+                    - string: {text: "F", margin: 6, foreground: *color4, font: *default}
+                    - string: {text: "S", margin: 6, foreground: *color2, font: *default}
+                    - string: {text: "S", margin: 6, foreground: *color1, font: *default}
+            date == "5":
+              - list:
+                  items:
+                    - string: {text: "M", margin: 6, foreground: *color9, font: *default}
+                    - string: {text: "D", margin: 6, foreground: *color8, font: *default}
+                    - string: {text: "M", margin: 6, foreground: *color7, font: *default}
+                    - string: {text: "D", margin: 6, foreground: *color6, font: *default}
+                    - string: {text: "F", margin: 6, foreground: *color4, font: *extrabold, deco: *current}
+                    - string: {text: "S", margin: 6, foreground: *color2, font: *default}
+                    - string: {text: "S", margin: 6, foreground: *color1, font: *default}
+            date == "6":
+              - list:
+                  items:
+                    - string: {text: "M", margin: 6, foreground: *color9, font: *default}
+                    - string: {text: "D", margin: 6, foreground: *color8, font: *default}
+                    - string: {text: "M", margin: 6, foreground: *color7, font: *default}
+                    - string: {text: "D", margin: 6, foreground: *color6, font: *default}
+                    - string: {text: "F", margin: 6, foreground: *color4, font: *default}
+                    - string: {text: "S", margin: 6, foreground: *color2, font: *extrabold, deco: *current}
+                    - string: {text: "S", margin: 6, foreground: *color1, font: *default}
+            date == "0":
+              - list:
+                  items:
+                    - string: {text: "M", margin: 6, foreground: *color9, font: *default}
+                    - string: {text: "D", margin: 6, foreground: *color8, font: *default}
+                    - string: {text: "M", margin: 6, foreground: *color7, font: *default}
+                    - string: {text: "D", margin: 6, foreground: *color6, font: *default}
+                    - string: {text: "F", margin: 6, foreground: *color4, font: *default}
+                    - string: {text: "S", margin: 6, foreground: *color2, font: *default}
+                    - string: {text: "S", margin: 6, foreground: *color1, font: *extrabold, deco: *current}
+
