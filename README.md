@@ -44,7 +44,7 @@
           class="menu"></a>
     </li>
     <li>
-      <a href="https://zaney.creator-spring.com/" target="_blank"><img src="/img/store.png" title="Shop in our store"
+      <a href="https://odysee.com/@JighaSchad" target="_blank"><img src="/img/store.png" title="Shop in our store"
           class="menu"></a>
     </li>
     <li>
@@ -53,10 +53,6 @@
     </li>
     <li>
       <a href="https://codeberg.org/SlimTux" target="_blank"><img src="/img/codeberg-blue.png" title="Find My Dotfiles"
-          class="menu"></a>
-    </li>
- <li>
-      <a href="https://codeberg.org/SlimTux" target="_blank"><img src="/img/codeberg-black.png" title="Find My Dotfiles"
           class="menu"></a>
     </li>
     <li>
