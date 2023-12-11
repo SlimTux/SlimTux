@@ -26,7 +26,7 @@
 </head>
 <body>
   <a href="/"><img src="/img/logo.png" alt="logo" class="logo"></a>
-  <h1 class="header"><a href="https://slimtux.github.io/School/#/">The Chad's Cast</a></h1>
+  <h1 class="header"><a href="https://thelinuxcast-clone.vercel.app/">The Chad's Cast</a></h1>
   <h2 class="subheader">Some parts <i>"STOLEN" FROM 'THE LINUX CAST'</i> whatch him on YouTube and Odysee</h2>
   <ul class="menu center">
     <li>
